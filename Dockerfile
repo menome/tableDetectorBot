@@ -27,9 +27,7 @@ RUN rm -f .npmrc
 # RUN pip --version
 RUN pip install opencv-python pytesseract
 RUN git clone https://github.com/interviewBubble/Tabulo.git
-RUN cd Tabulo
-RUN pip install -e .
-run cd ..
+RUN pip install -e Tabulo
 # Copy the code for the prod container.
 # This seems to not cause any problems in dev when we mount a volume at this point.
 COPY ./app app
