@@ -11,7 +11,7 @@ module.exports = function(bot) {
    * @param {*} text The text to model
    */
   this.analyze = function(msg) {
-    var filePath= bot.config.get("tableDetector").mount + msg.Uuid + ".png"
+    var filePath= "/tmp/" + msg.Uuid + ".png"
     return helpers.getFile(bot, msg.Library, msg.Path, filePath).then((filePath)=>{
       return new Promise((resolve,reject) => {
         execFile("tabulo",["predict", filePath, "--checkpoint 6aac7a1e8a8e", "-f /srv/app/output.json", "-d /srv/app/output/" ],{maxBuffer: 1024000,cwd: __dirname+"/../Tabulo"},(err,stdout,stderr) => {
