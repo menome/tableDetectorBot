@@ -7,6 +7,7 @@ RUN apt-get update && \
 
 # Commands will run in this directory
 RUN mkdir /srv/app
+RUN mkdir /srv/output
 WORKDIR /srv/app
 
 # # Install some Python stuffs.
@@ -33,6 +34,5 @@ run cd ..
 # This seems to not cause any problems in dev when we mount a volume at this point.
 COPY ./app app
 COPY ./config config
-COPY ./topicmodels topicmodels
 
 CMD npm start

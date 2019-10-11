@@ -14,18 +14,19 @@ module.exports = function(bot) {
     var filePath= bot.config.get("tableDetector").mount + msg.Uuid + ".png"
     return helpers.getFile(bot, msg.Library, msg.Path, filePath).then((filePath)=>{
       return new Promise((resolve,reject) => {
-        execFile("tabulo",["predict", filePath, "--checkpoint 6aac7a1e8a8e", "-f ../output.json", "-d ../output/" ],{maxBuffer: 1024000,cwd: __dirname+"/../Tabulo"},(err,stdout,stderr) => {
+        execFile("tabulo",["predict", filePath, "--checkpoint 6aac7a1e8a8e", "-f /srv/app/output.json", "-d /srv/app/output/" ],{maxBuffer: 1024000,cwd: __dirname+"/../Tabulo"},(err,stdout,stderr) => {
           if(err) {
             bot.logger.error("subprocess stderr:", stderr + '\n' + err);
             return reject(err);
           }
           //open ../output.json
-          var obj = JSON.parse(fs.readFileSync('../output.json', 'utf8'));
+          var obj = JSON.parse(fs.readFileSync('/srv/app/output.json', 'utf8'));
           // Parse stdout as JSON. Will throw an error on failure. 
           var response = JSON.parse(obj);
           bot.logger.info(response); 
           // delete the file       
           helpers.deleteFile(filePath); 
+          helpers.deleteFile("/srv/app/output/*"); 
           // return probability
           return resolve(response); 
         })
