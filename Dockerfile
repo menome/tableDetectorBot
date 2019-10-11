@@ -25,7 +25,7 @@ RUN npm install
 RUN rm -f .npmrc
 
 # RUN pip --version
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install opencv-python pytesseract
 RUN git clone https://github.com/interviewBubble/Tabulo.git
 RUN cd Tabulo
 RUN pip install -e .
