@@ -3,7 +3,7 @@ FROM tensorflow/tensorflow:1.13.2-gpu-py3
 EXPOSE 80
 ENV PORT 80
 RUN apt-get update && \ 
-  apt-get install -y libsm6 libxext6 libxrender-dev node npm
+  apt-get install -y libsm6 libxext6 libxrender-dev nodejs npm
 
 # Commands will run in this directory
 RUN mkdir /srv/app
