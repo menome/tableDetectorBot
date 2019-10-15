@@ -9,7 +9,7 @@
   "rabbit": {
     "enable": true,
     "url": "amqp://rabbitmq:CodaGlenBaronyMonk@localhost:10003?heartbeat=3600",
-    "routingKey": "fpp.topicmodels",
+    "routingKey": "fpp.table_detect_queue",
     "exchange": "fpp",
     "exchangeType": "topic"
   },

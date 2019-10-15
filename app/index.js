@@ -41,7 +41,7 @@ bot.tr = function(){
 
 //connect to rabbit initially
 //###########################
-bot.rabbit.addListener("tabledetectqueue",mp.handleMessage,"fileProcessingMessage");
+bot.rabbit.addListener("table_detect_queue",mp.handleMessage,"fileProcessingMessage");
 bot.connected = true;
 
 //Set up controllers
