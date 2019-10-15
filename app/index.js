@@ -13,7 +13,7 @@ const tableDetector = require('./tableDetectorWrapper');
 // Start the actual bot here.
 var bot = new Bot({
   config: {
-    "name": "FPP Advanced Topic Modeler bot",
+    "name": "Table Detection bot",
     "desc": ".",
     ...config
   },
@@ -41,7 +41,7 @@ bot.tr = function(){
 
 //connect to rabbit initially
 //###########################
-bot.rabbit.addListener("textract_queue",mp.handleMessage,"fileProcessingMessage");
+bot.rabbit.addListener("tabledetectqueue",mp.handleMessage,"fileProcessingMessage");
 bot.connected = true;
 
 //Set up controllers
