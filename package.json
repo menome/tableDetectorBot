@@ -1,7 +1,7 @@
 {
   "name": "fpp-table-detector-bot",
   "private": true,
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "uses table detection software",
   "repository": "https://github.com/menome",
   "license": "Commercial",
