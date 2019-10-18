@@ -14,7 +14,7 @@ module.exports = function(bot) {
     var filePath= "/tmp/" + msg.Uuid + ".png"
     return helpers.getFile(bot, msg.Library, msg.Path, filePath).then((filePath)=>{
       return new Promise((resolve,reject) => {
-        execFile("tabulo",["predict", filePath, "--checkpoint 6aac7a1e8a8e", "-f /srv/app/output.json", "-d /srv/app/output/" ],{maxBuffer: 1024000,cwd: __dirname+"/../Tabulo"},(err,stdout,stderr) => {
+        execFile("tabulo",["predict", filePath, " --checkpoint 6aac7a1e8a8e", "-f /srv/app/output.json", "-d /srv/app/output/" ],{maxBuffer: 1024000,cwd: __dirname+"/../Tabulo"},(err,stdout,stderr) => {
           if(err) {
             bot.logger.error("subprocess stderr:", stderr + '\n' + err);
             return reject(err);
