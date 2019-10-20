@@ -23,6 +23,7 @@ ARG NPM_TOKEN
 COPY .npmrc-deploy .npmrc
 RUN npm install
 RUN rm -f .npmrc
+RUN npm install forever -g 
 
 # RUN pip --version
 RUN pip install opencv-python pytesseract
