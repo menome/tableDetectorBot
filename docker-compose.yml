@@ -1,0 +1,24 @@
+ # Config overrides for local development of theLink stack.
+version: '3.7'
+services:
+ 
+  tabledetectorbot:
+      build:
+        context: ./
+        args:
+          NPM_TOKEN: aec81430-82a3-4284-9b96-c8a87f346536
+      environment:
+        - NODE_ENV=DEVELOPMENT
+        - RABBIT_URL=amqp://rabbitmq:CodaGlenBaronyMonk@statvis.menome.com:5672?heartbeat=3600
+        - RABBIT_OUTGOING_URL=amqp://rabbitmq:CodaGlenBaronyMonk@statvis.menome.com:5672?heartbeat=3600
+        - LIBRARIAN_HOST=http://10.137.64.157:3020
+        - LIBRARIAN_USERNAME=botuser
+        - LIBRARIAN_PASSWORD=CodaGlenBaronyMonk
+        - LIBRARIAN_SECRET=PentagramPantherBucklePuebloAfterglowDiscard
+        - NEO4J_USER=neo4j
+        - NEO4J_PASS=CodaGlenBaronyMonk
+        - NEO4J_URL=bolt://localhost:10002
+        - RABBIT_PREFETCH=1
+      volumes:
+        - ./config/fpp-config.json:/srv/app/config/fpp-config.json:ro
+        - ./mounts/tabledetectorbot/models:/srv/app/luminoth/utils/pretrained_models/luminoth
