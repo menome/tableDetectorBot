@@ -1,7 +1,7 @@
 {
   "port": 3013,
   "neo4j": {
-    "enable": true,
+    "enable": false,
     "url": "bolt://localhost:10002",
     "user": "neo4j",
     "pass": "CodaGlenBaronyMonk"
