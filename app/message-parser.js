@@ -37,6 +37,7 @@ module.exports = function(bot) {
     //get bucket location and extraction type, send it to correct python process
     bot.logger.info("Processing message: " + msg.Uuid);
       return bot.td.analyze(msg).then((data) => {
+        if(!data) return false;
         var harvesterMessage = {
           'NodeType': 'Card',
           'Priority':2,
