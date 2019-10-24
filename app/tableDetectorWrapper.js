@@ -25,7 +25,7 @@ module.exports = function(bot) {
           var obj = JSON.parse(fs.readFileSync('/srv/app/output.json', 'utf8'));
           // Parse stdout as JSON. Will throw an error on failure. 
           var response = JSON.parse(obj);
-          bot.logger.info(response); 
+          bot.logger.info(response);
           // delete the file       
           helpers.deleteFile(filePath); 
           helpers.deleteFile("/srv/app/output/*"); 

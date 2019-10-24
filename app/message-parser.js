@@ -45,7 +45,8 @@ module.exports = function(bot) {
           },
           'SourceSystem': 'tableDetector',
           'Properties': {
-            'TableProbability':JSON.stringify(data)
+            'TableProbability': (data.objects[0].prob) ? JSON.stringify(data.objects[0].prob) : -1
+
 
           },
           'Connections': []

@@ -3,14 +3,17 @@ version: '3.7'
 services:
  
   tabledetectorbot:
+      network_mode: host
       build:
         context: ./
         args:
           NPM_TOKEN: aec81430-82a3-4284-9b96-c8a87f346536
+      ports:
+        - 10003:10003
       environment:
         - NODE_ENV=DEVELOPMENT
-        - RABBIT_URL=amqp://rabbitmq:CodaGlenBaronyMonk@10.98.56.27:10005?heartbeat=3600
-        - RABBIT_OUTGOING_URL=amqp://rabbitmq:CodaGlenBaronyMonk@10.98.56.27:10005?heartbeat=3600
+        - RABBIT_URL=amqp://rabbitmq:CodaGlenBaronyMonk@127.0.0.1:10003?heartbeat=3600
+        - RABBIT_OUTGOING_URL=amqp://rabbitmq:CodaGlenBaronyMonk@localhost:10003?heartbeat=3600
         - LIBRARIAN_HOST=http://10.137.64.157:3020
         - LIBRARIAN_USERNAME=botuser
         - LIBRARIAN_PASSWORD=CodaGlenBaronyMonk
